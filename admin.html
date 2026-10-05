@@ -1,0 +1,6 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Demo</title><link rel="stylesheet" href="styles.css"></head><body><header><a href="home.html">← Home</a><div class="logo">Admin Demo</div></header>
+<main class="wrap"><div class="card"><h2>Local demo controls</h2><p>These controls only change data in this browser.</p>
+<button class="secondary" onclick="add()">+500 demo points</button><button class="secondary" onclick="clearHistory()">Clear history</button>
+<div class="notice">Not connected to a server. No payments or real accounts are used.</div></div></main>
+<script>function add(){let p=Number(localStorage.getItem('cp_points')||1000)+500;localStorage.setItem('cp_points',p);alert('Demo points added.')}function clearHistory(){localStorage.removeItem('cp_history');alert('History cleared.');}</script></body></html>

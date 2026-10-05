@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Colour Game</title><link rel="stylesheet" href="styles.css"></head><body>
+<header><a href="home.html">← Home</a><div class="logo">Colour Game</div><span id="points"></span></header>
+<main class="wrap"><div class="card center"><div class="round">Round <span id="round"></span></div><div class="timer" id="timer">15</div><p>Choose one colour before the timer ends.</p>
+<div class="choices"><button class="colour red" onclick="choose('Red')">Red</button><button class="colour green" onclick="choose('Green')">Green</button><button class="colour violet" onclick="choose('Violet')">Violet</button></div>
+<div id="msg" class="result">Make a choice</div><button class="secondary" onclick="newRound()">New Round</button></div>
+<div class="notice">This is a skill/UI simulation using virtual points only. There is no wagering or cash value.</div></main>
+<script>
+let t=15, chosen='', locked=false; let round=Number(localStorage.getItem('cp_round')||0)+1;
+const $=id=>document.getElementById(id);
+$('round').textContent=round; $('points').textContent=localStorage.getItem('cp_points')||1000;
+function choose(c){if(locked)return;chosen=c;$('msg').textContent='Selected: '+c+' — wait for result';}
+function finish(){if(locked)return;locked=true;const colors=['Red','Green','Violet'];const result=colors[Math.floor(Math.random()*3)];
+let p=Number(localStorage.getItem('cp_points')||1000);let change=chosen===result?50:chosen?-25:0;p=Math.max(0,p+change);localStorage.setItem('cp_points',p);localStorage.setItem('cp_round',round);
+let h=JSON.parse(localStorage.getItem('cp_history')||'[]');h.unshift({round,choice:chosen||'None',result,change,time:new Date().toLocaleString()});localStorage.setItem('cp_history',JSON.stringify(h.slice(0,30)));
+$('msg').innerHTML='Result: <b>'+result+'</b><br><span class="'+(change>=0?'good':'bad')+'">'+(change>0?'+'+change:change)+' points</span>'; $('points').textContent=p;}
+function newRound(){location.reload()}
+setInterval(()=>{if(t>0){t--;$('timer').textContent=t}else finish()},1000);
+</script></body></html>

@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home</title><link rel="stylesheet" href="styles.css"></head><body>
+<header><div class="logo">● ColourPlay</div><a href="index.html" onclick="localStorage.clear()">Reset</a></header>
+<main class="wrap"><section class="hero card"><p>Welcome, <b id="user"></b> 👋</p><h1>Virtual Points: <span id="points"></span></h1><p>Practice the UI and game flow with points that have no cash value.</p><a class="primary btn" href="game.html">Play Demo</a></section>
+<div class="grid"><a class="card navcard" href="game.html">🎯<b>Colour Game</b><span>Play a virtual round</span></a>
+<a class="card navcard" href="history.html">📜<b>History</b><span>See your past rounds</span></a>
+<a class="card navcard" href="leaderboard.html">🏆<b>Leaderboard</b><span>Demo rankings</span></a>
+<a class="card navcard" href="admin.html">⚙️<b>Admin Demo</b><span>Local-only controls</span></a></div>
+<div class="notice">Demo only: points cannot be converted to money or prizes.</div></main>
+<script>document.getElementById('user').textContent=localStorage.getItem('cp_name')||'Player';document.getElementById('points').textContent=localStorage.getItem('cp_points')||1000;</script>
+</body></html>

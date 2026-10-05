@@ -1,0 +1,4 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>History</title><link rel="stylesheet" href="styles.css"></head><body><header><a href="home.html">← Home</a><div class="logo">History</div></header>
+<main class="wrap"><div class="card"><h2>Your rounds</h2><div id="list"></div></div></main>
+<script>const h=JSON.parse(localStorage.getItem('cp_history')||'[]');document.getElementById('list').innerHTML=h.length?h.map(x=>`<div class="row"><span>#${x.round} · ${x.choice} → ${x.result}</span><b class="${x.change>=0?'good':'bad'}">${x.change>0?'+':''}${x.change}</b></div>`).join(''):'<p>No rounds yet.</p>';</script></body></html>

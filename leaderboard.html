@@ -1,0 +1,4 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leaderboard</title><link rel="stylesheet" href="styles.css"></head><body><header><a href="home.html">← Home</a><div class="logo">Leaderboard</div></header>
+<main class="wrap"><div class="card"><h2>Demo rankings</h2><div class="row"><span>🥇 Demo Player</span><b>2450</b></div><div class="row"><span>🥈 Lucky Demo</span><b>2100</b></div><div class="row"><span>🥉 Fast Player</span><b>1850</b></div><div class="row"><span>👤 <span id="me"></span></span><b id="pts"></b></div></div></main>
+<script>me.textContent=localStorage.getItem('cp_name')||'Player';pts.textContent=localStorage.getItem('cp_points')||1000;</script></body></html>

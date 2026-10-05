@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Colour Prediction Demo</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<div class="auth card">
+  <div class="logo">● ColourPlay</div>
+  <p class="tag">Virtual-points UI demo</p>
+  <h1>Welcome</h1><p>Enter any name to start the demo.</p>
+  <input id="name" maxlength="20" placeholder="Your name">
+  <button class="primary" onclick="start()">Start Demo</button>
+  <small>No real money • No deposits • No withdrawals</small>
+</div>
+<script>
+function start(){const n=document.getElementById('name').value.trim()||'Player';localStorage.setItem('cp_name',n);localStorage.setItem('cp_points','1000');location.href='home.html'}
+</script></body></html>
